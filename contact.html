@@ -120,9 +120,42 @@
                             <img src="demo-images/reopen_contact_image01.jpg" alt="" />                            
                         </div> -->
                         <div class="clear"></div>
+                        <!-- <br>
                         <br>
-                        <br>
+                        Source: https://github.com/toperkin/staticFormEmails
+                            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLScU7SRAYVbmNkqlb3cw1bJhXHJCO9LrRE0eQT7cq40BGaMvDw/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+                            Name:<br>
+                            <input type="text" name="entry.991184123" id="entry.991184123"><br>
+                            Subject:<br>
+                            <input type="text" name="entry.133775836" id="entry.133775836"><br>
+                            Email:<br>
+                            <input type="text" name="entry.1843542396" id="entry.1843542396"><br>
+                            Your Message:<br>
+                            <input type="text" name="entry.1479937154" id="entry.1479937154"><br>
+                            <input type="submit" value="Submit">
+                            </form>
+
+                            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+
+                        GOOGLE FORM: https://docs.google.com/forms/d/15ofl-ObeR-wG3I30i02762Rwuzs6FXgWPNJWGgLxS8I/edit -->
                         <div class="contact-form">
+                            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLScU7SRAYVbmNkqlb3cw1bJhXHJCO9LrRE0eQT7cq40BGaMvDw/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+
+
+                            <p class="custom-text-class">Name</p>
+                            <p class="custom-field-class"><input type="text" name="entry.991184123" id="entry.991184123"><br></p>                            
+                            <p class="custom-text-class">Subject</p>
+                            <p class="custom-field-class"> <input type="text" name="entry.133775836" id="entry.133775836"><br></p>
+                            <p class="custom-text-class">Email</p>
+                            <p class="custom-field-class"><input type="text" name="entry.1843542396" id="entry.1843542396"><br></p>                            
+                            <p class="custom-text-class">Your Message</p>
+                            <p class="custom-field-class"><input type="text" name="entry.1479937154" id="entry.1479937154"><br></p>
+                            <p><input type="submit" value="Submit"></p>                                
+                        </div>   
+                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+       
+
+                       <!--  <div class="contact-form">
                             <p class="custom-text-class">Name</p>
                             <p class="custom-field-class"><input id="name" type="text" name="your-name"></p>                            
                             <p class="custom-text-class">Subject</p>
@@ -132,7 +165,7 @@
                             <p class="custom-text-class">Your Message</p>
                             <p class="custom-field-class"><textarea id="message" name="your-message"></textarea></p>
                             <p><input type="submit" onClick="SendMail()" value="SEND"></p>                                
-                        </div>                      
+                        </div>          -->             
                     </div>
                 </article>
             </div>
@@ -188,5 +221,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Manue
         <script src='js/jquery.prettyPhoto.js'></script>
         <script src='js/jquery.nicescroll.min.js'></script>
         <script src='js/main.js'></script>
+<!-- Google form -->
+        <script type="text/javascript">var submitted=false;</script>
+        <script type="text/javascript">
+        $('#gform').on('submit', function(e) {
+          $('#gform *').fadeOut(2000);
+          $('#gform').prepend('Your submission has been processed...');
+          });
+        </script>
     </body>
 </html>
