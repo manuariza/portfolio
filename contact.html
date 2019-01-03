@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head>
-        <title>Reopen - Html Responsive Template</title>
+        <title>Manuel Ariza</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="description" content="Template by Dry Themes" />
         <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
@@ -137,10 +137,12 @@
 
                             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
 
-                        GOOGLE FORM: https://docs.google.com/forms/d/15ofl-ObeR-wG3I30i02762Rwuzs6FXgWPNJWGgLxS8I/edit -->
+                        GOOGLE FORM: https://docs.google.com/forms/d/15ofl-ObeR-wG3I30i02762Rwuzs6FXgWPNJWGgLxS8I/edit 
+                -->
                         <div class="contact-form">
-                            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLScU7SRAYVbmNkqlb3cw1bJhXHJCO9LrRE0eQT7cq40BGaMvDw/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
-
+                            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLScU7SRAYVbmNkqlb3cw1bJhXHJCO9LrRE0eQT7cq40BGaMvDw/formResponse?" target="hidden_iframe" onsubmit
+                            ="return checkForm(this);">
+                            <!-- onsubmit ="alert('Thank you for your feedback.');"> -->
 
                             <p class="custom-text-class">Name</p>
                             <p class="custom-field-class"><input type="text" name="entry.991184123" id="entry.991184123"><br></p>                            
@@ -150,7 +152,11 @@
                             <p class="custom-field-class"><input type="text" name="entry.1843542396" id="entry.1843542396"><br></p>                            
                             <p class="custom-text-class">Your Message</p>
                             <p class="custom-field-class"><input type="text" name="entry.1479937154" id="entry.1479937154"><br></p>
-                            <p><input type="submit" value="Submit"></p>                                
+                            <!-- <p><input type="submit" value="Submit"></p> -->
+                            <p><input type="submit" name="myButton" value="Submit"></p>
+                            <!-- <p><input type="buttom" value="Send another message" onclick="resetForm(this.form);"></p> -->
+    
+
                         </div>   
                         <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
        
@@ -178,7 +184,7 @@
                     <ul>
                         <li class="copyright-footer">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Manuel Ariza
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> Manuel Ariza
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </li>
                         <!-- <li class="social-footer">                
@@ -223,11 +229,26 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Manue
         <script src='js/main.js'></script>
 <!-- Google form -->
         <script type="text/javascript">var submitted=false;</script>
+<!-- SUBMIT action -->
         <script type="text/javascript">
-        $('#gform').on('submit', function(e) {
-          $('#gform *').fadeOut(2000);
-          $('#gform').prepend('Your submission has been processed...');
-          });
+
+          function checkForm(form) // Submit button clicked
+          {
+            //
+            // check form input values
+            //
+
+            form.myButton.disabled = true;
+            form.myButton.value = "Sent!";
+            return true;
+          }
+
+          function resetForm(form) // Reset button clicked
+          {
+            form.myButton.disabled = false;
+            form.myButton.value = "Submit";
+          }
+
         </script>
     </body>
 </html>
