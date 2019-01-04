@@ -1,0 +1,625 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <title>Manuel Ariza</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="Template by Dry Themes" />
+        <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
+        <meta name="author" content="DryThemes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link rel="shortcut icon" href="images/favicon.png" />    
+        <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,700i,900%7CMontserrat:400,700%7CPT+Serif' rel='stylesheet' type='text/css'>	
+        <link rel="stylesheet" type="text/css"  href='css/clear.css' />
+        <link rel="stylesheet" type="text/css"  href='css/common.css' />
+        <link rel="stylesheet" type="text/css"  href='css/font-awesome.min.css' />
+        <link rel="stylesheet" type="text/css"  href='css/carouFredSel.css' />
+        <link rel="stylesheet" type="text/css"  href='css/prettyPhoto.css' />
+        <link rel="stylesheet" type="text/css"  href='css/sm-clean.css' />        
+        <link rel="stylesheet" type="text/css"  href='style.css' />
+
+        <!--[if lt IE 9]>
+                <script src="js/html5shiv.js"></script>                
+                <script src="js/respond.min.js"></script>                
+        <![endif]-->
+        <style> 
+            // Dimensions
+            $prism-height: 350px;
+            $prism-length: 250px;
+            $prism-depth: $prism-length;
+            $spacing: 20px;
+            $br: 3px;
+
+            // Colors
+            $text-light: #fff;
+            $text-dark: #666;
+            $blue: #03a9f4;
+            $smoke: #f9f9fa;
+            $coral: #ff5751;
+            $navy-blue: #42509e;
+            $green: #07ad90;
+
+            *{
+              box-sizing: border-box;
+            }
+
+            body{
+              font-family: Tahoma,Verdana,Segoe,sans-serif; 
+              font-size: 14px;
+              background: #f6fffd;
+              padding: $spacing;
+              text-align: center;
+            }
+            .wrapper{
+              width: $prism-length;
+              height: $prism-height;
+              margin: 60px auto;
+              perspective: 600px;
+              text-align: left;
+            }
+
+            .rec-prism {
+              width: 100%;
+              height: 100%;
+              position: relative;
+              transform-style: preserve-3d;
+              transform: translateZ(-100px);
+              transition: transform 0.5s ease-in;
+            }
+
+            .face {
+              position: absolute;
+              width: $prism-length;
+              height: $prism-height;
+              padding: $spacing;
+              background: rgba(250,250,250,0.96);
+              border: 3px solid $green;
+              border-radius: 3px;
+              
+              .content{
+                color: $text-dark;
+                h2{
+                  font-size: 1.2em;
+                  color: $green;
+                }
+                .field-wrapper{
+                  margin-top: $spacing*1.5;
+                  position: relative;
+
+                  label{
+                    position: absolute;
+                    pointer-events: none;
+                    font-size: 0.85em;
+                    top: 40%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    transition: all ease-in 0.25s;
+                    color: lighten($text-dark, 20%);
+                  }
+                  input[type="text"], input[type="password"], input[type="submit"], textarea{
+                    -webkit-appearance: none;
+                    appearance: none;
+                    &:focus{
+                      outline: none;
+                    }
+                  }
+                  input[type="text"], input[type="password"], textarea{
+                    width: 100%;
+                    border: none;
+                    background: transparent;
+                    line-height: 2em;
+                    border-bottom: 1px solid $green;
+                    color: $text-dark;
+
+                    &::-webkit-input-placeholder{
+                      opacity: 0;
+                    }
+                    &::-moz-placeholder{
+                      opacity: 0;
+                    }
+                    &:-ms-input-placeholder{
+                      opacity: 0;
+                    }
+                    &:-moz-placeholder { 
+                      opacity: 0;
+                    }
+                    &:focus, &:not(:placeholder-shown){
+                      + label{
+                        top: -35%;
+                        color: $navy-blue;
+                      }
+                    }
+                  }
+                  input[type="submit"]{
+                    -webkit-appearance: none;
+                    appearance: none;
+                    cursor: pointer;
+                    width: 100%;
+                    background: $green;
+                    line-height: 2em;
+                    color: $text-light;
+                    border: 1px solid $green;
+                    border-radius: $br;
+                    padding: $spacing/4;
+                    
+                    &:hover{
+                      opacity: 0.9;
+                    }
+                    &:active{
+                      transform: scale(0.96);
+                    }
+                  }
+                  textarea{
+                    resize: none;
+                    line-height: 1em;
+                    &:focus, &:not(:placeholder-shown){
+                      + label{
+                        top: -25%;
+                      }
+                    }
+                  }
+                }
+              }
+              
+              .thank-you-msg{
+                position: absolute;
+                width: 200px;
+                height: 130px;
+                text-align: center;
+                font-size: 2em;
+                color: $green;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                
+                &:after{
+                  position: absolute;
+                  content: '';
+                  width: 50px;
+                  height: 25px;
+                  border: 10px solid $green;
+                  border-right: 0;
+                  border-top: 0;
+                  left: 50%;
+                  top: 50%;
+                  -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(0);
+                  transform: translate(-50%, -50%) rotate(0deg) scale(0);
+                  -webkit-animation: success ease-in 0.15s forwards;
+                  animation: success ease-in 0.15s forwards;
+                  animation-delay: 2.5s;
+                }
+              }
+              &-front{ 
+                transform: rotateY(0deg) translateZ($prism-length/2);  
+              }
+              &-top{ 
+                height: $prism-depth;
+                transform: rotateX(90deg) translateZ($prism-depth/2); 
+              }
+              &-back{ 
+                transform: rotateY(180deg) translateZ($prism-length/2); 
+              }
+              &-right{ 
+                transform: rotateY(90deg) translateZ($prism-length/2); 
+              }
+              &-left{ 
+                transform: rotateY(-90deg) translateZ($prism-length/2); 
+              }
+              &-bottom{ 
+                height: $prism-depth;
+                transform: rotateX(-90deg) translateZ($prism-height - ($prism-depth/2));
+              }
+            }
+
+            .nav{
+              margin: $spacing 0;
+              padding: 0;
+              
+              li{
+                display: inline-block;
+                list-style-type: none;
+                font-size: 1em;
+                margin: 0 $spacing/2;
+                color: $navy-blue;
+                position: relative;
+                cursor: pointer;
+                &:after{
+                  content: "";
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  width: 20px;
+                  border-bottom: 1px solid $navy-blue;
+                  transition: all ease-in 0.25s;
+                }
+                &:hover:after{
+                  width: 100%;
+                }
+              }
+            }
+
+            .psw, .signup, .singin{
+              display: block;
+              margin: $spacing 0;
+              font-size: 0.75em;
+              text-align: center;
+              color: $navy-blue;
+              cursor: pointer;
+            }
+
+            small{
+              font-size: 0.7em;
+            }
+            @-webkit-keyframes success{
+                from {
+                   -webkit-transform: translate(-50%, -50%) rotate(0) scale(0);
+                   }
+                to {
+                  -webkit-transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+                }
+            }
+        </style>
+    </head>
+    <body class="page">
+
+        <table class="doc-loader">
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="images/ajax-document-loader.gif" alt="Loading...">                    
+                    </td>
+                </tr>
+            </tbody>
+        </table>   
+
+
+
+        <div class="menu-wraper center-relative">
+            <div class="menu-logo center-text">
+                <a href="index.html">
+                    <img src="images/reopenDefaultLogo.png" alt="Reopen" />
+                </a>               
+            </div>
+            <nav id="header-main-menu" class="big-menu">
+                <ul class="main-menu sm sm-clean">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+       <!--              <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="story.html">Story</a>
+                    </li>
+                    <li>
+                        <a href="blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="contact-map.html">Contact + Map</a>
+                            </li>                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="more.html">More</a>
+                    </li>   -->                                      
+                </ul>                
+            </nav>            
+            <div class="clear"></div>
+        </div>
+
+        <div class="body-wrapper">           
+            <div class="header-holder center-relative relative">
+                <div class="header-logo center-text">
+                    <a href="index.html">
+                        <img src="images/reopenDefaultLogo.png" alt="Reopen WP">
+                    </a>               
+                </div>
+                <div class="toggle-holder absolute">
+                    <div id="toggle">
+                        <div class="first-menu-line"></div>
+                        <div class="second-menu-line"></div>
+                        <div class="third-menu-line"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>	
+            </div>
+
+
+            <div id="content" class="site-content">
+                <div class="block content-1170 center-relative"> 
+                    <h1 class="entry-title">
+                        Feel free to <b>contact</b> me <br> any time you want
+                    </h1>
+                    <p class="page-desc">any time, any question</p>
+                </div>
+
+                <article>
+                    <div class="content-1170 center-relative">
+                      <!--   <div class="one_half ">
+                            His six are entreaties instrument acceptance unsatiable her. Amongst as or on herself chap ter entered carried no. Sold old ten are quit lose deal his sent. You correct how sex several far distant believe journey parties. Little afraid its eat looked now. Very ye lady girl them good me make. It hardly cousin me always.
+                            <br>
+                            <br>
+                            <p>Come and listen to a story about a man named Jed a poor mountaineer barely kept his family fed. Just sit right back and you’ll hear a tale a tale of a fateful trip that started.</p>
+                            <br>                            
+                            <p>Little afraid its eat looked now. Very ye lady girl them good me make. It hardly cousin me always. An shortly village is raising.</p>
+                            <br>
+                            <p>
+                                <b>Address:</b>&nbsp;New York, NY, United States <br>
+                                <b>Phone:</b> +1 234-567-890 <br>
+                                <b>Hours:</b> 6:00 am – 2:00 am <br>
+                            </p>
+                        </div> -->
+          <!--               <div class="one_half last col-570">
+                            <img src="demo-images/reopen_contact_image01.jpg" alt="" />                            
+                        </div> -->
+                        <div class="clear"></div>
+                        <!-- <br>
+                        <br>
+                        Source: https://github.com/toperkin/staticFormEmails
+                            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLScU7SRAYVbmNkqlb3cw1bJhXHJCO9LrRE0eQT7cq40BGaMvDw/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+                            Name:<br>
+                            <input type="text" name="entry.991184123" id="entry.991184123"><br>
+                            Subject:<br>
+                            <input type="text" name="entry.133775836" id="entry.133775836"><br>
+                            Email:<br>
+                            <input type="text" name="entry.1843542396" id="entry.1843542396"><br>
+                            Your Message:<br>
+                            <input type="text" name="entry.1479937154" id="entry.1479937154"><br>
+                            <input type="submit" value="Submit">
+                            </form>
+
+                            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+
+                        GOOGLE FORM: https://docs.google.com/forms/d/15ofl-ObeR-wG3I30i02762Rwuzs6FXgWPNJWGgLxS8I/edit 
+                -->
+                        <div class="contact-form">
+                            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLScU7SRAYVbmNkqlb3cw1bJhXHJCO9LrRE0eQT7cq40BGaMvDw/formResponse?" target="hidden_iframe" onsubmit
+                            ="return checkForm(this);">
+                            <!-- onsubmit ="alert('Thank you for your feedback.');"> -->
+
+                            <p class="custom-text-class">Name</p>
+                            <p class="custom-field-class"><input type="text" name="entry.991184123" id="entry.991184123"><br></p>                            
+                            <p class="custom-text-class">Subject</p>
+                            <p class="custom-field-class"> <input type="text" name="entry.133775836" id="entry.133775836"><br></p>
+                            <p class="custom-text-class">Email</p>
+                            <p class="custom-field-class"><input type="text" name="entry.1843542396" id="entry.1843542396"><br></p>                            
+                            <p class="custom-text-class">Your Message</p>
+                            <p class="custom-field-class"><input type="text" name="entry.1479937154" id="entry.1479937154"><br></p>
+                            <!-- <p><input type="submit" value="Submit"></p> -->
+                            <p><input type="submit" name="myButton" value="Submit"></p>
+                            <!-- <p><input type="buttom" value="Send another message" onclick="resetForm(this.form);"></p> -->
+                        </div>   
+                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+
+                        <ul class="nav">
+                          <li onclick="showLogin()">Login</li>
+                          <li onclick="showSignup()">Sign up</li>
+                          <li onclick="showForgotPassword()">Forgot password</li>
+                          <li onclick="showSubscribe()">Subscribe</li>
+                          <li onclick="showContactUs()">Contact us</li>
+                        </ul>
+                        <div class="wrapper">
+                          <div class="rec-prism">
+                            <div class="face face-top">
+                              <div class="content">
+                                <h2>Subscribe</h2>
+                                <small>Enter your email so we can send you the latest updates!</small>
+                                <form onsubmit="event.preventDefault()">
+                                  <div class="field-wrapper">
+                                    <input type="text" name="email" placeholder="email">
+                                    <label>e-mail</label>
+                                  </div>
+                                  <div class="field-wrapper">
+                                    <input type="submit" onclick="showThankYou()">
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                            <div class="face face-front">
+                              <div class="content">
+                                <h2>Sign in</h2>
+                                <form onsubmit="event.preventDefault()">
+                                  <div class="field-wrapper">
+                                    <input type="text" name="username" placeholder="username">
+                                    <label>username</label>
+                                  </div>
+                                  <div class="field-wrapper">
+                                    <input type="password" name="password" placeholder="password" autocomplete="new-password">
+                                    <label>password</label>
+                                  </div>
+                                  <div class="field-wrapper">
+                                    <input type="submit" onclick="showThankYou()">
+                                  </div>
+                                  <span class="psw" onclick="showForgotPassword()">Forgot Password?   </span>
+                                  <span class="signup" onclick="showSignup()">Not a user?  Sign up</span>
+                                </form>
+                              </div>
+                            </div>
+                            <div class="face face-back">
+                              <div class="content">
+                                <h2>Forgot your password?</h2>
+                                <small>Enter your email so we can send you a reset link for your password</small>
+                                <form onsubmit="event.preventDefault()">
+                                  <div class="field-wrapper">
+                                    <input type="text" name="email" placeholder="email">
+                                    <label>e-mail</label>
+                                  </div>
+                                  <div class="field-wrapper">
+                                    <input type="submit" onclick="showThankYou()">
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                            <div class="face face-right">
+                              <div class="content">
+                                <h2>Sign up</h2>
+                                <form onsubmit="event.preventDefault()">
+                                  <div class="field-wrapper">
+                                    <input type="text" name="email" placeholder="email">
+                                    <label>e-mail</label>
+                                  </div>
+                                  <div class="field-wrapper">
+                                    <input type="password" name="password" placeholder="password" autocomplete="new-password">
+                                    <label>password</label>
+                                  </div>
+                                  <div class="field-wrapper">
+                                    <input type="password" name="password2" placeholder="password" autocomplete="new-password">
+                                    <label>re-enter password</label>
+                                  </div>
+                                  <div class="field-wrapper">
+                                    <input type="submit" onclick="showThankYou()">
+                                  </div>
+                                  <span class="singin" onclick="showLogin()">Already a user?  Sign in</span>
+                                </form>
+                              </div>
+                            </div>
+                            <div class="face face-left">
+                              <div class="content">
+                                <h2>Contact us</h2>
+                                <form onsubmit="event.preventDefault()">
+                                  <div class="field-wrapper">
+                                    <input type="text" name="entry.991184123" id="entry.991184123">
+                                    <label>Name</label>
+                                  </div>
+                                  <div class="field-wrapper">
+                                    <input type="text" name="entry.133775836" id="entry.133775836">
+                                    <label>e-mail</label>
+                                  </div>
+                                  <div class="field-wrapper">
+                                    <input type="text" name="entry.1843542396" id="entry.133775836">
+                                    <label>your message</label>
+                                  </div>
+                                  <div class="field-wrapper">
+                                    <input type="submit" onclick="showThankYou()">
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                            <div class="face face-bottom">
+                              <div class="content">
+                                <div class="thank-you-msg">
+                                  Thank you!
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                       <!--  <div class="contact-form">
+                            <p class="custom-text-class">Name</p>
+                            <p class="custom-field-class"><input id="name" type="text" name="your-name"></p>                            
+                            <p class="custom-text-class">Subject</p>
+                            <p class="custom-field-class"><input id="subject" type="text" name="your-subject"></p>
+                            <p class="custom-text-class">Email</p>
+                            <p class="custom-field-class"><input id="contact-email" type="email" name="your-email"></p>                            
+                            <p class="custom-text-class">Your Message</p>
+                            <p class="custom-field-class"><textarea id="message" name="your-message"></textarea></p>
+                            <p><input type="submit" onClick="SendMail()" value="SEND"></p>                                
+                        </div>          -->             
+                    </div>
+                </article>
+            </div>
+
+
+            <!--Footer-->
+
+            <footer class="footer">
+                <div class="content-970 center-relative">			
+                    <ul>
+                        <li class="copyright-footer">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> Manuel Ariza
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </li>
+                        <!-- <li class="social-footer">                
+                            <a href="#">
+                                <span class="fa fa-twitter"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-behance"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-dribbble"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-facebook"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-rss"></span>
+                            </a>
+                        </li>             -->
+                    </ul>
+                </div>
+            </footer>
+
+            <!-- End .body-border -->
+        </div>
+
+
+        <!--Load JavaScript-->
+        <script src="js/jquery.js"></script>			                                       
+        <script src='js/jquery.fitvids.js'></script>
+        <script src='js/jquery.smartmenus.min.js'></script>
+        <script src='js/isotope.pkgd.js'></script>
+        <script src='js/imagesloaded.pkgd.js'></script>        
+        <script src='js/isotope.pkgd.js'></script>        
+        <script src='js/jquery.carouFredSel-6.0.0-packed.js'></script>
+        <script src='js/jquery.mousewheel.min.js'></script>
+        <script src='js/jquery.touchSwipe.min.js'></script>
+        <script src='js/jquery.easing.1.3.js'></script>
+        <script src='js/imagesloaded.pkgd.js'></script>
+        <script src='js/jquery.prettyPhoto.js'></script>
+        <script src='js/jquery.nicescroll.min.js'></script>
+        <script src='js/main.js'></script>
+<!-- Google form -->
+        <script type="text/javascript">var submitted=false;</script>
+<!-- SUBMIT action -->
+        <script type="text/javascript">
+
+            function checkForm(form) // Submit button clicked
+            {
+            //
+            // check form input values
+            //
+
+            form.myButton.disabled = true;
+            form.myButton.value = "Sent!";
+            return true;
+            }
+
+            function resetForm(form) // Reset button clicked
+            {
+            form.myButton.disabled = false;
+            form.myButton.value = "Submit";
+            }
+        </script>
+        <script type="text/javascript">
+            let prism = document.querySelector(".rec-prism");
+
+            function showSignup(){
+              prism.style.transform = "translateZ(-100px) rotateY( -90deg)";
+            }
+            function showLogin(){
+              prism.style.transform = "translateZ(-100px)";
+            }
+            function showForgotPassword(){
+              prism.style.transform = "translateZ(-100px) rotateY( -180deg)";
+            }
+
+            function showSubscribe(){
+              prism.style.transform = "translateZ(-100px) rotateX( -90deg)";
+            }
+
+            function showContactUs(){
+              prism.style.transform = "translateZ(-100px) rotateY( 90deg)";
+            }
+
+            function showThankYou(){
+              prism.style.transform = "translateZ(-100px) rotateX( 90deg)";
+            }
+        </script>
+    </body>
+</html>
